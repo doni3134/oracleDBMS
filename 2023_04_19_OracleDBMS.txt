@@ -1,0 +1,36 @@
+Create Or Replace Procedure Insertbook (
+Mybookid In Number,
+Mybookname In Varchar2,
+Mypublisher In Varchar2,
+Myprice In Number )
+As
+Begin
+Insert Into Book(Bookid, Bookname, Publisher, Price)
+Values( Mybookid, Mybookname, Mypublisher, Myprice );
+End;
+/
+EXEC InsertBook(13, '스포츠과학', '마당과학서적', 25000);
+select * from book;
+
+Create Or Replace Procedure Interest
+
+Create Table Book_log(
+bookid_1 number,
+bookname_1 varchar2(40)
+publisher_1 varchar2(40),
+pirce_1 number);
+
+Create or replace trigger afterinsertbook
+after insert on book for each row
+declare
+average number;
+begin
+insert into book_log
+values(:new.bookid,:new.bookname,:new.publisher,:new.price);
+dbms_output.put_line('삽입 튜플을 book_log 테이블에 백업..');
+end;
+/
+
+Insert into book values(14,'스포츠 과학','이상미디어',25000);
+select * from book where bookid ='14';
+select * from book_log where bookid_L='14';
