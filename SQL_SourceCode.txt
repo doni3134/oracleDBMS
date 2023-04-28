@@ -1,0 +1,60 @@
+CREATE TABLE Newbook
+(
+	bookid               CHAR(18) NOT NULL ,
+	bookname             CHAR(18) NULL ,
+	pirce                CHAR(18) NULL ,
+	pubname              CHAR(18) NULL 
+);
+
+
+
+CREATE UNIQUE INDEX XPK도서 ON Newbook
+(bookid   ASC);
+
+
+
+CREATE TABLE NewCustomer
+(
+	name                 CHAR(18) NOT NULL ,
+	custid               CHAR(18) NULL ,
+	address              CHAR(18) NULL ,
+	phone                CHAR(18) NULL 
+);
+
+
+
+CREATE UNIQUE INDEX XPK고객 ON NewCustomer
+(name   ASC);
+
+
+
+CREATE TABLE NewOrder
+(
+	orderid              CHAR(18) NOT NULL ,
+	name                 CHAR(18) NOT NULL ,
+	bookid               CHAR(18) NOT NULL ,
+	orderdate            CHAR(18) NULL ,
+	salepirce            CHAR(18) NULL 
+);
+
+
+
+CREATE UNIQUE INDEX XPK주문 ON NewOrder
+(orderid   ASC);
+
+
+
+CREATE TABLE NewPublisher
+(
+	pubname              CHAR(18) NOT NULL ,
+	stname               CHAR(18) NULL ,
+	officephone          CHAR(18) NULL 
+);
+
+
+
+CREATE UNIQUE INDEX XPK출판사 ON NewPublisher
+(pubname   ASC);
+
+
+
